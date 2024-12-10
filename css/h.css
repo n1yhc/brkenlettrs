@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #dedede;
+}
+
+body {
+    position: relative;
+    overflow-y: auto;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/categoryimage.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -1;
+}
+
+.title {
+    position: fixed;
+    top: 60px;
+    left: 30px;
+    color: black;
+    font-size: 2.5rem;
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-align: left;
+    letter-spacing: -2px;
+    transform: scaleX(0.75);
+    display: inline-block;
+    margin-bottom: 20px; /* 제목 아래 여백 추가 */
+}
+
+.content {
+    display: flex;
+    align-items: flex-start;  /* 텍스트와 이미지를 위쪽에 정렬 */
+    padding: 0 20px;  /* 여백 추가 */
+}
+
+.text-container {
+  position: relative;
+    width: 150px;  /* 텍스트 부분의 너비 설정 */
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-style: normal;
+    text-align: left;
+    letter-spacing: -2px;
+    transform: scaleX(0.75);
+  top: 180px;
+  left: 150px;  /* 텍스트와 블럭 간격 설정 */
+   
+}
+
+.text-container a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: inherit; /* 부모 요소의 색상을 상속받음 */
+}
+
+/* 마우스를 올렸을 때 공통 스타일 */
+.text-container a:hover {
+  color: rgb(107, 107, 107);
+}
+
+.text-container p {
+    margin-bottom: 10px;  /* 각 p 태그 간의 간격 설정 */
+  white-space: nowrap;
+}
+
+.block-container {
+    display: flex;
+  flex-wrap: wrap;
+    gap: 20px;  /* 블럭 간 간격 설정 */
+    position: relative;
+  left: -75px;
+  margin-top: 290px;
+  margin-bottom: 50px;
+    justify-content: flex-start;
+}
+
+.image-block {
+    width: 500px;
+    height: 315px;
+    background-color: #f0f0f0;  /* 블럭 색 설정 */
+  border: 2px solid black;
+    text-align: center;
+}
+
+.image {
+  max-width: 455px;
+  max-height: 350px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  object-position: left top;
+  margin-left:20px;
+  margin-right: 20px;
+    margin-top: 20px;  /* 이미지와 텍스트 간격 설정 */
+    margin-bottom: 30px;
+  display: block;
+}
+
+.image-block p {
+  margin-left: 13px;
+    margin-top: 10px;  /* 텍스트와 이미지 간격 설정 */
+    width: 20%;  /* 텍스트 부분의 너비 설정 */
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    font-style: normal;
+    text-align: left;
+    letter-spacing: -2px;
+    transform: scaleX(0.75);
+    white-space: nowrap;
+  
+}
+
+.back-button {
+    position: absolute;
+    top: 50px; /* 우측 상단에서 40px 아래 */
+    right: 50px; /* 우측에서 40px */
+    width: 30px;
+    height: 30px;
+    font-size: 50px; /* 화살표 크기 */
+    text-align: center;
+    line-height: 30px; /* 화살표 중앙 정렬 */
+    background-color: transparent; /* 배경색 */
+    border-radius: 50%; /* 원 모양 */
+    color: #000000; /* 화살표 색상 */
+    text-decoration: none; /* 링크 기본 스타일 제거 */
+    display: inline-block;
+    z-index: 1;
+}
+
+.upload-button {
+    position: absolute;
+    top: 174px; /* 우측 상단에서 40px 아래 */
+    left: 80px; /* 우측에서 40px */
+    width: 110px;
+    height: 40px;
+    font-size: 30px; /* 화살표 크기 */
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-style: normal;
+    letter-spacing: -2px;
+    transform: scaleX(0.75);
+    text-align: center;
+    line-height: 41px; /* 화살표 중앙 정렬 */
+    background-color:#f5d926; /* 배경색 */
+    border: 2px solid black;
+    border-radius: 10%; /* 원 모양 */
+    color: #000000; /* 화살표 색상 */
+    text-decoration: none; /* 링크 기본 스타일 제거 */
+    display: inline-block;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+    background-color:#ffee80;
+}
+
+
+.image-wrapper:hover .image-text,
+.image-wrapper:active .image-text {
+    opacity: 1; /* 텍스트 표시 */
+}

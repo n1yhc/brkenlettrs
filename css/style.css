@@ -1,0 +1,84 @@
+/* 기본 스타일 초기화 */
+body {
+    margin: 0;
+    background-color: #d0d0ce; /* 배경색 */
+    overflow: hidden; /* 스크롤 방지 */
+}
+
+/* 캔버스 스타일 */
+canvas {
+    display: block; /* 기본 마진 제거 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 버튼 컨테이너 */
+#colorButtons {
+    position: fixed;
+    bottom: 20px; /* 하단 여백 */
+    left: 50%; /* 화면 중앙 정렬 */
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px; /* 버튼 간격 */
+    z-index: 10; /* 캔버스보다 위에 표시 */
+}
+
+/* 색상 버튼 스타일 */
+.color-btn {
+    width: 40px;
+    height: 40px;
+    border: 2px solid black; /* 테두리 */
+    border-radius: 0; /* 정사각형 */
+    cursor: pointer; /* 마우스 포인터 */
+}
+
+/* 뒤로가기 버튼 스타일 */
+#undoButton {
+    width: 40px;
+    height: 40px;
+    border: 2px solid black; /* 테두리 */
+    background: none; /* 배경색 제거 */
+    cursor: pointer;
+    display: flex;
+    align-items: center; /* 아이콘 수직 중앙 정렬 */
+    justify-content: center; /* 아이콘 수평 중앙 정렬 */
+}
+
+
+/* 뒤로가기 버튼 아이콘 스타일 */
+#undoButton svg {
+    stroke: black; /* 아이콘 색상 */
+    transition: stroke 0.2s ease; /* 호버 시 색상 전환 효과 */
+    margin-left: -4px; /* 왼쪽으로 5px 이동 */
+}
+
+/* 뒤로가기 버튼 호버 스타일 */
+#undoButton:hover svg {
+    stroke: gray; /* 호버 시 색상 변경 */
+}
+
+/* 버튼 공통 스타일 */
+.common-button {
+    position: absolute;
+    background: transparent;
+    border: transparent; /* 가시성용 임시 색깔 */
+    border-radius: 50%; /* 타원 모양 */
+    cursor: pointer;
+    z-index: 20; /* 캔버스보다 위 */
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* 마우스를 올렸을 때 공통 스타일 */
+.common-button:hover {
+    background: rgba(255, 255, 255, 0.5); /* 호버 시 반투명색 */
+    border-color: cyan;
+}
+
+
+.image-wrapper:hover .image-text,
+.image-wrapper:active .image-text {
+    opacity: 1; /* 텍스트 표시 */
+}

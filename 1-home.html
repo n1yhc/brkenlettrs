@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing on Background</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <script>
+        window.onload = function() {
+            alert("페이지에 낙서를 해보세요.");
+        }
+    </script> <!-- 팝업창은 상황보고 지우자 -->
+    <div id="colorButtons">
+        <button class="color-btn" style="background-color: #f5d926;" data-color="#f5d926"></button>
+        <button class="color-btn" style="background-color: #023994;" data-color="#023994"></button>
+        <button class="color-btn" style="background-color: #db1a16;" data-color="#db1a16"></button>
+        <button class="color-btn" style="background-color: #ffffff;" data-color="#ffffff"></button>
+        <button class="color-btn" style="background-color: #000000;" data-color="#000000"></button>
+        <button id="undoButton">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+                <path d="M9 12h12"></path>
+            </svg>
+        </button>
+    </div>
+    <canvas id="drawingCanvas"></canvas>
+    <script src="js/script.js"></script>
+</body>
+</html>
