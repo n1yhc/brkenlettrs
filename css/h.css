@@ -235,6 +235,7 @@ body {
 .image-container {
   margin-left:-85px;
   margin-top: 180px;
+  margin-bottom: 60px;
   column-width: 300px;
   column-gap: 10px;
   padding: 0px;
