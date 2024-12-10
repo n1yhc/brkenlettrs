@@ -1,8 +1,20 @@
+
+html, body {
+    touch-action: manipulation; /* 터치로 줌인/줌아웃 막기 */
+    overflow-x: hidden;           /* 가로스크롤 제거 */
+    overflow-y: hidden;
+  }
+
 /* 기본 스타일 초기화 */
 body {
     margin: 0;
     background-color: #d0d0ce; /* 배경색 */
     overflow: hidden; /* 스크롤 방지 */
+    -webkit-user-drag: none; /* Safari, Chrome */
+  -webkit-user-select: none; /* Safari, Chrome */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Standard */
 }
 
 /* 캔버스 스타일 */
@@ -81,4 +93,9 @@ canvas {
 .image-wrapper:hover .image-text,
 .image-wrapper:active .image-text {
     opacity: 1; /* 텍스트 표시 */
+}
+
+
+@media screen and (max-width: 400px) {
+      
 }

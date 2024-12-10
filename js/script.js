@@ -11,13 +11,13 @@ let currentPath = []; // 현재 그리고 있는 경로
 // 버튼 데이터 (id, 링크, 위치 비율)
 const buttonData = [
     { id: 'a-button', link: '2-a.html', x: 0.24, y: 0.21, width: 0.1135, height: 0.1085 },
-    { id: 'b-button', link: '3-b.html', x: 0.226, y: 0.34, width: 0.1135, height: 0.1085 },
-    { id: 'c-button', link: '4-c.html', x: 0.24, y: 0.47, width: 0.1135, height: 0.1085 },
-    { id: 'd-button', link: '5-d.html', x: 0.225, y: 0.59, width: 0.117, height: 0.1085 },
-    { id: 'e-button', link: '6-e.html', x: 0.642, y: 0.377, width: 0.132, height: 0.106 },
-    { id: 'f-button', link: '7-f.html', x: 0.637, y: 0.485, width: 0.117, height: 0.106 },
-    { id: 'g-button', link: '8-g.html', x: 0.64, y: 0.603, width: 0.132, height: 0.108 },
-    { id: 'h-button', link: '9-h.html', x: 0.6506, y: 0.723, width: 0.115, height: 0.11 },
+    { id: 'b-button', link: '3-b.html', x: 0.226, y: 0.341, width: 0.116, height: 0.1085 },
+    { id: 'c-button', link: '4-c.html', x: 0.24, y: 0.475, width: 0.117, height: 0.1085 },
+    { id: 'd-button', link: '5-d.html', x: 0.225, y: 0.59, width: 0.119, height: 0.115 },
+    { id: 'e-button', link: '6-e.html', x: 0.642, y: 0.377, width: 0.135, height: 0.108 },
+    { id: 'f-button', link: '7-f.html', x: 0.637, y: 0.485, width: 0.119, height: 0.106 },
+    { id: 'g-button', link: '8-g.html', x: 0.64, y: 0.603, width: 0.134, height: 0.11 },
+    { id: 'h-button', link: '9-h.html', x: 0.6506, y: 0.723, width: 0.117, height: 0.115 },
 ];
 
 // 캔버스 초기화
@@ -52,14 +52,22 @@ function drawBackgroundImage() {
 
     let drawWidth, drawHeight, offsetX = 0, offsetY = 0;
 
+    // 모바일 환경일 경우 이미지 확대
+    const isMobile = window.innerWidth <= 400; // 모바일 화면 너비 기준
+    const scale = isMobile ? 1.7 : 1; // 모바일에서 50% 확대
+
     if (imgAspectRatio > canvasAspectRatio) {
-        drawWidth = canvas.width / pixelRatio;
+        drawWidth = (canvas.width / pixelRatio) * scale;
         drawHeight = drawWidth / imgAspectRatio;
         offsetY = (canvas.height / pixelRatio - drawHeight) / 2;
     } else {
-        drawHeight = canvas.height / pixelRatio;
+        drawHeight = (canvas.height / pixelRatio) * scale;
         drawWidth = drawHeight * imgAspectRatio;
         offsetX = (canvas.width / pixelRatio - drawWidth) / 2;
+    }
+
+    if (isMobile) {
+        offsetX -= 133;
     }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -70,6 +78,7 @@ function drawBackgroundImage() {
     // 버튼 초기화 호출
     initializeButtons(drawWidth, drawHeight, offsetX, offsetY);
 }
+
 
 // 버튼 초기화 함수
 function initializeButtons(imgWidth, imgHeight, offsetX, offsetY) {
@@ -200,3 +209,7 @@ undoButton.addEventListener('click', undo);
 backgroundImage.onload = () => {
     resizeCanvas();
 };
+
+document.addEventListener('gesturestart', function (e) {
+    e.preventDefault(); // 기본 확대/축소 동작 방지
+});
